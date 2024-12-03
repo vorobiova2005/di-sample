@@ -13,5 +13,15 @@ public class EnergyManagementSystem {
 
         // Генеруємо рахунок
         billingService.generateBill();
+
+        // Додатковий функціонал: робота з енергоспоживанням
+        // Отримуємо сервіс для роботи з енергоспоживанням
+        EnergyUsageService energyUsageService = injector.getInstance(EnergyUsageService.class);
+
+        // Зберігаємо зразок даних
+        energyUsageService.processAndSaveEnergyUsage(150.75, "2024-12-01");
+
+        // Виводимо дані
+        energyUsageService.printEnergyUsage();
     }
 }
